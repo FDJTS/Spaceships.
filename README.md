@@ -35,4 +35,4 @@ Welcome to the Legendary Spaceships Game! Test your reflexes and aim as you batt
 Feel free to fork the repository and submit pull requests for new features or bug fixes. Let's make this game even more legendary!
 
 ## License
-This project is licensed under the MIT License.
+This project is open source
