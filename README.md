@@ -24,9 +24,9 @@ Welcome to the Spaceships Game! Test your reflexes and aim as you battle waves o
 
 3. Run the game:
    ```bash
-   python spaceships_game.py
-   ```
-
+   python main.py
+Or
+   run on vscode
 ## Controls
 - **Arrow Keys**: Move the spaceship left and right.
 - **Spacebar**: Shoot bullets.
