@@ -28,5 +28,3 @@ python main.py
 ![Retro](screenshots/retro.png)
 
 ---
-
-Developed with ❤️ by Zyad Mohamed
