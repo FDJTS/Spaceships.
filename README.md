@@ -1,6 +1,6 @@
-# Legendary Spaceships Game
+# Spaceships Game
 
-Welcome to the Legendary Spaceships Game! Test your reflexes and aim as you battle waves of enemies in this classic arcade-style game.
+Welcome to the Spaceships Game! Test your reflexes and aim as you battle waves of enemies in this classic arcade-style game.
 
 ## Features
 - Control your spaceship with smooth controls.
@@ -33,6 +33,7 @@ Welcome to the Legendary Spaceships Game! Test your reflexes and aim as you batt
 
 ## Contributing
 Feel free to fork the repository and submit pull requests for new features or bug fixes. Let's make this game even more legendary!
+To contact us for any questions: (fdjts1@gmail.com)
 
 ## License
 This project is open source
