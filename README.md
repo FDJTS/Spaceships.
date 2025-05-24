@@ -14,7 +14,7 @@ Welcome to the Spaceships Game! Test your reflexes and aim as you battle waves o
 ## Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/FDJTS/legendary-spaceships-game.git
+   git clone https://github.com/FDJTS/Spaceships..git
    cd legendary-spaceships-game
    ```
 2. Install the dependencies:
