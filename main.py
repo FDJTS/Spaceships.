@@ -1,11 +1,9 @@
 import pygame
 import random
 
-# إعدادات اللعبة الأساسية
 WIDTH, HEIGHT = 800, 600
 FPS = 60
 
-# ألوان
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
@@ -16,7 +14,6 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Epic Spaceships")
 clock = pygame.time.Clock()
 
-# تحميل الصور (هنعملهم كصور بسيطة بلون هنا بدل ملفات خارجية)
 def create_spaceship_image():
     image = pygame.Surface((60, 60), pygame.SRCALPHA)
     pygame.draw.polygon(image, BLUE, [(30, 0), (60, 60), (0, 60)])
@@ -27,7 +24,6 @@ def create_enemy_image():
     pygame.draw.rect(image, RED, image.get_rect())
     return image
 
-# كائن السفينة الفضائية
 class Spaceship(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -56,7 +52,6 @@ class Spaceship(pygame.sprite.Sprite):
         all_sprites.add(bullet)
         bullets.add(bullet)
 
-# كائن الطلقات
 class Bullet(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
@@ -72,7 +67,6 @@ class Bullet(pygame.sprite.Sprite):
         if self.rect.bottom < 0:
             self.kill()
 
-# كائن الأعداء
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -89,7 +83,6 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.y = random.randrange(-100, -40)
             self.speedy = random.randrange(3, 8)
 
-# إعداد المجموعات
 all_sprites = pygame.sprite.Group()
 enemies = pygame.sprite.Group()
 bullets = pygame.sprite.Group()
@@ -105,7 +98,6 @@ for _ in range(8):
 score = 0
 running = True
 
-# حلقة اللعبة الأساسية
 while running:
     clock.tick(FPS)
     for event in pygame.event.get():
@@ -116,8 +108,7 @@ while running:
                 player.shoot()
     
     all_sprites.update()
-    
-    # التحقق من التصادمات
+
     hits = pygame.sprite.groupcollide(enemies, bullets, True, True)
     for hit in hits:
         score += 10
@@ -133,8 +124,7 @@ while running:
     
     screen.fill(BLACK)
     all_sprites.draw(screen)
-    
-    # عرض النتيجة والطاقة
+
     font = pygame.font.SysFont(None, 36)
     score_text = font.render(f"Score: {score}", True, WHITE)
     screen.blit(score_text, (10, 10))
