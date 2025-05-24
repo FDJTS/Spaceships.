@@ -1,25 +1,20 @@
 import pygame
 import random
 
-# Initialize Pygame
 pygame.init()
 
-# Screen dimensions
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Legendary Spaceships Game")
 
-# Colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 
-# FPS
 FPS = 60
 clock = pygame.time.Clock()
 
-# Spaceship class
 class Spaceship(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -38,7 +33,6 @@ class Spaceship(pygame.sprite.Sprite):
             bullet = Bullet(self.rect.centerx, self.rect.top)
             bullets.add(bullet)
 
-# Enemy class
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -56,7 +50,6 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.y = random.randint(-100, -40)
             self.speed = random.randint(1, 4)
 
-# Bullet class
 class Bullet(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
@@ -71,43 +64,35 @@ class Bullet(pygame.sprite.Sprite):
         if self.rect.bottom < 0:
             self.kill()
 
-# Initialize sprite groups
 all_sprites = pygame.sprite.Group()
 enemies = pygame.sprite.Group()
 bullets = pygame.sprite.Group()
 
-# Create spaceship
 spaceship = Spaceship()
 all_sprites.add(spaceship)
 
-# Create enemies
 for i in range(8):
     enemy = Enemy()
     all_sprites.add(enemy)
     enemies.add(enemy)
 
-# Game loop
 running = True
 while running:
     clock.tick(FPS)
     keys = pygame.key.get_pressed()
 
-    # Event handling
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    # Update
     all_sprites.update(keys)
 
-    # Check for collisions
     hits = pygame.sprite.groupcollide(enemies, bullets, True, True)
     for hit in hits:
         enemy = Enemy()
         all_sprites.add(enemy)
         enemies.add(enemy)
 
-    # Draw
     screen.fill(BLACK)
     all_sprites.draw(screen)
     pygame.display.flip()
